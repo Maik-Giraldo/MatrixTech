@@ -1,0 +1,113 @@
+<app-navbar [imgProfile]="img_profile?.value"></app-navbar>
+<input type="file" #inputImage accept=".png,.jpeg">
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img [src]="img_profile?.value ? 
+                    img_profile?.value :
+                    'https://thumbs.dreamstime.com/b/icono-de-usuario-predeterminado-vectores-imagen-perfil-avatar-predeterminada-vectorial-medios-sociales-retrato-182347582.jpg'"
+                    class="img-fluid img-preview" alt="Sample image"
+                    title="Edit image"
+                    (click)="inputImage.click()">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form [formGroup]="updateForm">
+                    <h1 class="text-center mb-4">Profile</h1>
+
+                    <!-- Name input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" class="form-control form-control-lg" formControlName="name"
+                            placeholder="Enter a name" />
+                        <span *ngIf="name?.errors?.['required'] && name?.['touched']" class="text-danger">name is
+                            required
+                        </span>
+                    </div>
+
+                    <!-- Last Name input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" class="form-control form-control-lg" formControlName="last_name"
+                            placeholder="Enter a last name" />
+                        <span *ngIf="last_name?.errors?.['required'] && last_name?.['touched']" class="text-danger">last
+                            name is
+                            required
+                        </span>
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" class="form-control form-control-lg" formControlName="email"
+                            placeholder="Enter a valid email address" />
+                        <span *ngIf="email?.errors?.['required'] && email?.['touched']" class="text-danger">email is
+                            required
+                        </span>
+                        <span *ngIf="email?.errors?.['email'] && email?.['touched']" class="text-danger">email is
+                            invalid
+                        </span>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <input type="password" id="form3Example4" class="form-control form-control-lg"
+                            formControlName="password" placeholder="Enter password" />
+                        <span *ngIf="password?.errors?.['required'] && password?.['touched']" class="text-danger">
+                            password is required
+                        </span>
+                        <span *ngIf="password?.errors?.['minlength'] && password?.['touched']" class="text-danger"
+                            class="text-danger">password must be at least 6 characters
+                        </span>
+                    </div>
+
+                    <!-- Phone Number input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" class="form-control form-control-lg" formControlName="phone_number"
+                            placeholder="Enter a phone number" />
+                        <span *ngIf="phone_number?.errors?.['required'] && phone_number?.['touched']"
+                            class="text-danger">
+                            phone number is required
+                        </span>
+                        <span *ngIf="phone_number?.errors?.['minlength'] && phone_number?.['touched']"
+                            class="text-danger">
+                            phone number must be at least 10 characters
+                        </span>
+                        <span *ngIf="phone_number?.errors?.['maxlength'] && phone_number?.['touched']"
+                            class="text-danger">
+                            phone number must be at max 10 characters
+                        </span>
+                    </div>
+
+                    <!-- City input -->
+                    <div class="form-outline mb-4">
+                        <input type="city" class="form-control form-control-lg" formControlName="city"
+                            placeholder="Enter a city" />
+                        <span *ngIf="city?.errors?.['required'] && city?.['touched']" class="text-danger">city is
+                            required</span>
+                    </div>
+
+                    <!-- Country input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" class="form-control form-control-lg" formControlName="country"
+                            placeholder="Enter a country" />
+                        <span *ngIf="country?.errors?.['required'] && country?.['touched']" class="text-danger">country
+                            is required</span>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="button" class="btn btn-primary btn-lg"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;" [disabled]="updateForm.invalid"
+                            (click)="updateUser()">Update</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div
+        class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+        <!-- Copyright -->
+        <div class="text-white mb-3 mb-md-0">
+            Copyright © 2022. All rights reserved by Michael Giraldo.
+        </div>
+        <!-- Copyright -->
+    </div>
+</section>

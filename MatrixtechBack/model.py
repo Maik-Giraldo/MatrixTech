@@ -9,6 +9,8 @@ class Users(db.Model):
     name = db.Column(db.String(255), nullable = False)
     last_name = db.Column(db.String(255), nullable = False)
     email = db.Column(db.String(255), nullable = False)
+    password = db.Column(db.String(255), nullable = False)
+    img_profile = db.Column(db.String(255), nullable = False)
     phone_number = db.Column(db.String(10), nullable = False)
     city = db.Column(db.String(255),  nullable = False)
     country = db.Column(db.String(255),  nullable = False)
