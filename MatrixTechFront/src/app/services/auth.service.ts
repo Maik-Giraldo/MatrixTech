@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { updateRequest } from '../shared/interfaces/update-request';
 import { updateResponse } from '../shared/interfaces/update-reponse';
 import { verifyTokenResponse } from '../shared/interfaces/verify-token-response';
+import { DeleteResponse } from '../shared/interfaces/delete-response';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +60,10 @@ export class AuthService {
 
   updateUser(request: updateRequest): Observable<updateResponse> {
     return this._http.put<updateResponse>(`${this.base_url}/users`, request);
+  }
+
+  delete(): Observable<DeleteResponse> {
+    return this._http.delete<DeleteResponse>(`${this.base_url}/users`);
   }
 
   verifyToken(): Observable<verifyTokenResponse> {

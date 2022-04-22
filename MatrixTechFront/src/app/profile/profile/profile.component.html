@@ -92,12 +92,22 @@
                             is required</span>
                     </div>
 
-                    <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="button" class="btn btn-primary btn-lg"
-                            style="padding-left: 2.5rem; padding-right: 2.5rem;" [disabled]="updateForm.invalid"
-                            (click)="updateUser()">Update</button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="text-center text-lg-start mt-4 pt-2">
+                                <button type="button" class="btn btn-primary btn-lg"
+                                    style="padding-left: 2.5rem; padding-right: 2.5rem;" [disabled]="updateForm.invalid"
+                                    (click)="updateUser()">Update</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center text-lg-start mt-4 pt-2">
+                                <button type="button" class="btn btn-danger btn-lg"
+                                    style="padding-left: 2.5rem; padding-right: 2.5rem;"
+                                    (click)="deleteUser()">Delete my profile</button>
+                            </div>
+                        </div>
                     </div>
-
                 </form>
             </div>
         </div>

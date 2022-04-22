@@ -85,6 +85,25 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     }
   }
 
+  deleteUser() {
+    this._auth.delete().subscribe({
+      next: (response) => {
+        if(response.deleted) {
+          this._notifier.show({
+            type: 'success',
+            message: response.message
+          })
+          this._auth.logout();
+        }else{
+          this._notifier.show({
+            type: 'error',
+            message: response.message
+          })
+        }
+      }
+    })
+  }
+
   get name() {
     return this.updateForm.get('name');
   }
